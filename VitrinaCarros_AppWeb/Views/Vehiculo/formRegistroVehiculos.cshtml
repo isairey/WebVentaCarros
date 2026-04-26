@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "RegistroVehiculos";
+
+}
+
+
+<div class="container">
+    <br /><br />
+    <center>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h5><b>Agregar Vehiculo</b></h5></div>
+            <div class="panel-body">
+
+                <form method="post" action="/Vehiculo/crearVehiculos">
+
+                    <div class="form-group">
+                        <label for="Modelo">Modelo: </label>
+                        <input type="text" class="form-control" id="Modelo" name="txtModelo" placeholder="Ingrese modelo de auto">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Fecha">Fecha: </label>
+                        <input type="date" class="form-control" id="Modelo" name="dtmFecha">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Precio">Precio: </label>
+                        <input type="text" class="form-control" id="Precio" name="txtPrecio" placeholder="Precio del Vehiculo">
+                    </div>
+                    <!--
+                        <div class="form-group">
+                        <label for="Ruta">Agrege Ruta de la Imagen: </label>
+                        <input type="text" id="Ruta" name="txtRuta" class="form-control">
+                        <input type="submit" name="btnImagen" value="Agregar Imagen" class="btn btn-success"/>
+                        </div>
+                    -->
+
+                    <button type="submit" class="btn btn-primary">Agregar Vehiculo</button>
+                </form>
+            </div>
+        </div>
+    </center>
+ </div>

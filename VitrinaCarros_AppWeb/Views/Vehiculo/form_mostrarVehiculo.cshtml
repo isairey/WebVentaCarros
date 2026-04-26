@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "form_mostrarVehiculo";
+    VitrinaCarros_AppWeb.Models.Cls_vehiculo model =
+        (VitrinaCarros_AppWeb.Models.Cls_vehiculo) ViewData["ModelVehiculo"];
+}
+
+    <div class="container">
+        <center>
+            <h2>Mostrar Vehiculo</h2>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-info" aling="center">
+                        <div class="panel-heading"><b>ID: </b>@Html.Raw(model.getIdVehiculo())</div>
+                        <div class="panel-body">
+                            <p><b>Modelo: </b> @Html.Raw(model.getModelo())</p>
+                            <p><b>Año: </b> @Html.Raw(model.getAnio())</p>
+                            <p><b>Precio: </b> @Html.Raw(model.getPrecio())</p>
+                            @Html.ActionLink("Atras", "mostrarAllVehiculos", "Vehiculo", new { area = "" }, new { @class = "btn btn-success" })
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+    </div>

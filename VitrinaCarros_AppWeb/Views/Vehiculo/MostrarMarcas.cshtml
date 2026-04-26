@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "MostrarMarcas";
+
+    List<VitrinaCarros_AppWeb.Models.Cls_marca> datos = 
+        (List<VitrinaCarros_AppWeb.Models.Cls_marca>)ViewData["listaMarcas"];
+
+}
+
+    <div class="container">
+
+        <h2>Listado de Marcas de Vehiculos</h2>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+
+            @foreach (var obj in datos)
+            {
+                <tr>
+                    <td>@obj.IdVehiculo</td>
+                    <td>@obj.Nombre</td>
+
+                    <td>
+                        <form action="/Vehiculo/MostrarVehiculos" method="post">
+                            <input type="hidden" name="id_vehiculo" value="@obj.IdVehiculo" />
+                            <input type="hidden" name="nombre" value=">@obj.Nombre" />
+
+                            <button type="submit" class="btn btn-info">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+        <center>
+            @Html.ActionLink("Atras", "formRegistroMarca", "Vehiculo", new { area = "" }, new { @class = "btn btn-success" })
+        </center>
+    </div>
+
+

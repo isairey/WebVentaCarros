@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "mostrarAllVehiculos";
+
+    List<VitrinaCarros_AppWeb.Models.Cls_vehiculo> datos = 
+        (List<VitrinaCarros_AppWeb.Models.Cls_vehiculo>)ViewData["listaVehiculos"];
+
+}
+
+    <div class="container">
+
+        <h2>Datos Guardados</h2>
+
+    
+        <center>
+            <div class="row">
+
+                @foreach (var vehiculo in datos)
+                {
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <p>Modelo: @vehiculo.getModelo()</p>                             
+                                <p>Año: @vehiculo.getAnio()</p>
+                                <p>Precio: @vehiculo.getPrecio()</p>
+
+                                <form action="/Vehiculo/MostrarVehiculos" method="post">
+                                    <input type="hidden" name="id_vehiculo" value="@vehiculo.getIdVehiculo()" />
+                                    <input type="hidden" name="modelo" value=">@vehiculo.getModelo()" />
+                                    <input type="hidden" name="anio" value="@vehiculo.getAnio()" />
+                                    <input type="hidden" name="precio" value="@vehiculo.getPrecio()" />
+                                    
+                                    <button type="submit" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </center>
+
+
+        <center>
+
+            @Html.ActionLink("Atras", "formRegistroVehiculos", "Vehiculo", new { area = "" }, new { @class = "btn btn-success" })
+        </center>
+
+    </div>

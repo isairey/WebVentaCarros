@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "mostrarVehiculosXMarca";
+
+    List<VitrinaCarros_AppWeb.Models.Cls_vehiculo> datos =
+        (List<VitrinaCarros_AppWeb.Models.Cls_vehiculo>)ViewData["listaVehiculos"];
+
+}
+
+<div class="container">
+
+    <h2>Datos Guardados</h2>
+
+    <form method="get" action="/Vehiculo/ConsultarVehiculosXMarca" class="form-inline">
+        <div class="form-group">
+            <label for="Modelo">Buscar Marca de Vehiculo : </label>
+            <input type="text" class="form-control" id="Modelo" name="txtBusMarca" placeholder="Ingrese una marca a buscar">
+            <input type="submit" name="btnBuscarMarca" value="Buscar Marca Vehiculo" class="btn btn-success" />
+        </div>
+    </form>
+
+    <br />
+
+    <center>
+        <div class="row">
+
+            @foreach (var vehiculo in datos)
+            {
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <p>Modelo: @vehiculo.getModelo()</p>
+
+                            <p>Año: @vehiculo.getAnio()</p>
+                            <p>Precio: @vehiculo.getPrecio()</p>
+
+                            <form action="/Vehiculo/MostrarVehiculos" method="post">
+                                <input type="hidden" name="id_vehiculo" value="@vehiculo.getIdVehiculo()" />
+                                <input type="hidden" name="nombre" value=">@vehiculo.getModelo()" />
+                                <input type="hidden" name="descripcion" value="@vehiculo.getAnio()" />
+                                <input type="hidden" name="idEquipo" value="@vehiculo.getPrecio()" />
+
+                                <button type="submit" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </center>
+
+
+    <center>
+
+        @Html.ActionLink("Atras", "formRegistroVehiculos", "Vehiculo", new { area = "" }, new { @class = "btn btn-success" })
+    </center>
+
+</div>

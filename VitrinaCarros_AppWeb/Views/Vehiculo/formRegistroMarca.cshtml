@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "formRegistrarMarca";
+
+    List<VitrinaCarros_AppWeb.Models.Cls_vehiculo> datos =
+       (List<VitrinaCarros_AppWeb.Models.Cls_vehiculo>)ViewData["listaVehiculosPorModelo"];
+}
+
+
+    <div class="container">
+
+        <br />
+
+        <center>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h2>Agregar Marca de Vehiculo</h2></div>
+                <div class="panel-body">
+
+                    <form method="post" action="/Vehiculo/crearMarcaVehiculo">
+
+                        <div class="form-group">
+                            <label for="Marca">Seleccione una Modelo del Vehiculo: </label>
+                            <select name="cbModelo" class="form-control">
+                                @foreach (var obj in datos)
+                                {
+                                    <option value="@obj.getIdVehiculo()">@obj.getModelo()</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombreMarca">Nombre de la Marca: </label>
+                            <input type="text" class="form-control" id="nombreMarca" name="txtNombre" placeholder="Ingrese modelo de auto">
+                        </div>
+
+
+
+                        <input type="submit" class="btn btn-primary" name="btnGuadar" value="Guadar">
+                    </form>
+                </div>
+            </div>
+        </center>
+    </div>
