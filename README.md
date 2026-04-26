@@ -52,11 +52,11 @@ venta-autos/
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/tuusuario/venta-autos.git
+git clone https://github.com/isairey/WebVentaCarros.git
 ```
 Acceder al proyecto:
 ```
-cd venta-autos
+cd WebVentaCarros
 ```
 Abrir el archivo en el navegador:
 ```
@@ -95,7 +95,7 @@ La aplicación utiliza JavaScript para renderizar dinámicamente los autos y ges
 ---
 ## 👨‍💻 Autor
 
-Desarrollado por Isai Reyes Peña
+Desarrollado por **Isai Reyes Peña**
 
 ---
 ## 📄 Licencia
